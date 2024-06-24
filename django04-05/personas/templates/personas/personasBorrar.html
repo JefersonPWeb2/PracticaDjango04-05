@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action='.' method='POST'> {% csrf_token %}
+    <h1>Quiere borrar a esta persona: </h1>
+    <h2>{{ objeto.nombres }}</h2>
+    <input type='submit' value='Si'/>
+    <a href='../'>Cancelar</a>
+</form>
+{% endblock %}
