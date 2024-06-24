@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Persona
 from .forms import PersonaForm, RawPersonaForm
 from .models import Persona
@@ -44,7 +44,8 @@ class PersonaDeleteView(DeleteView):
     
 class PersonaQueryView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hola Mundo con Clases')
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe = False)
 
 def personaTestView(request):
     obj = Persona.objects.get(id = 1)
