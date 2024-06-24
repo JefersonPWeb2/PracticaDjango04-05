@@ -23,6 +23,6 @@ app_name = 'personas'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myHomeView, name='PaginaInicio'),
-    path('another', anotherView, mame='otra'),
+    path('another', anotherView, name='otra'),
     path('personas/', include('personas.urls')),
 ]
