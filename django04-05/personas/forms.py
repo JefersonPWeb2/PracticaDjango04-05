@@ -12,7 +12,16 @@ class PersonaForm(forms.ModelForm):
         ]
 
 class RawPersonaForm(forms.Form):
-    nombres = forms.CharField(label = 'Your name')
+    nombres = forms.CharField(
+        widget = forms.Textarea(
+            attrs={
+                'placeholder': 'Sólo tu nombre, por favor',
+                'id': 'nombreID',
+                'class': 'special',
+                'cols': '10',
+            }
+        )
+    )
     apellidos = forms.CharField()
-    edad = forms.IntegerField(initial=20)
+    edad = forms.IntegerField()
     donador = forms.BooleanField()
