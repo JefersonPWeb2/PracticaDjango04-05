@@ -39,3 +39,10 @@ def personasAnotherCreateView(request):
         'form': form,
     }
     return render(request, 'personas/personasCreate.html', context)
+
+def personasShowObject(request, myID):
+    obj = Persona.objects.get(id=myID)
+    context = {
+        'objeto': obj,
+    }
+    return render(request, 'personas/descripcion.html', context)
